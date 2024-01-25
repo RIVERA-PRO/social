@@ -1,0 +1,166 @@
+.NavbarProfileContain{
+   display: flex;
+ 
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px 7% ;
+   background-color: var(--blanco);
+   color: var(--blanco)!important;
+  
+   position: fixed;
+   width: 100%;
+   z-index: 1000;
+   box-shadow: -25px 10px 10px -10px rgba(0, 0, 0, 0.2);
+
+
+}
+.deFlexNav{
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+.nav_toggle2 span{
+    width: 25px;
+    height: 3px;
+    background: var(--color1);
+    margin-bottom: 5px;
+    border-radius: 20px;
+    transform-origin: 3px 0px;
+    transition: all 0.2s linear;
+    display: flex;
+    justify-content: right;
+    text-align: right;
+  
+}
+.nav_toggle2 span:nth-child(1) {
+    width: 15px;
+    margin-left: 60%;
+}
+
+.nav_toggle2 span:nth-child(2) {
+    width: 25px; 
+    margin-left: 35%;
+}
+
+.nav_toggle2 span:nth-child(3) {
+    width: 35px; 
+    margin-left: 6%;
+}
+
+.nav_toggle2.open > span{
+    transform: rotate(40deg) translate(-6px, 0px);
+    width: 1.3rem;
+   
+}
+.nav_toggle2.open > span:nth-child(2){
+    display: none;
+}
+.nav_toggle2.open > span:nth-child(3){
+    transform: rotate(-45deg) translate(4px, 1px);
+    width: 1.3rem;
+ 
+}
+
+.InfoPerfil{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--blanco);
+}
+.InfoPerfil span{
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--color1);
+    padding: 20px;
+    border-radius: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: var(--color1);
+   
+}
+.InfoPerfilText {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.InfoPerfilText h5{
+    color: var(--blanco);
+    font-size: 14px;
+}
+.InfoPerfilText h6{
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--blanco);
+}
+
+
+
+
+.InfoPerfilLoading{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.InfoPerfilLoading img{
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 100%;
+    object-fit: cover;
+}
+.InfoPerfilLoadingText {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.InfoPerfilLoadingText h5{
+    width: 6rem;
+    height: 10px;
+    background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
+    background-size: 400% 400%;
+    animation: gradientMove 1s linear infinite;
+    -webkit-animation: gradientMove 1s linear infinite;
+    border-radius: 7px;
+    
+}
+.InfoPerfilLoadingText h6{
+    width: 10rem;
+    height: 10px;
+    background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
+    background-size: 400% 400%;
+    animation: gradientMove 1s linear infinite;
+    -webkit-animation: gradientMove 1s linear infinite;
+    border-radius: 7px;
+    
+}
+.logoNav img{
+    width: 35px;
+}
+
+.NavbarProfileContain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 7%;
+    background-color: var(--blanco);
+    color: var(--blanco)!important;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: -25px 10px 10px -10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    transition: transform 0.3s ease-in-out; /* Agregamos una transición */
+}
+
+.NavbarProfileContain.scrolled {
+    position: absolute;
+    transform: translateY(-100%);
+}
+@media (max-width: 1024px) {
+    .espacio{
+        height:4rem;
+        background-color: var(--blanco);
+    }
+}

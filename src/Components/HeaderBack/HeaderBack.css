@@ -1,0 +1,40 @@
+.headerBack {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .headerBack{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        position: absolute;
+        width: 100%;
+        background: #18f0ff0b;
+   
+    transition: all .40s ease;
+ 
+    border-right: 2px solid rgba(255, 255, 255, .09);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(6px);
+        z-index: 2;
+       
+     }
+     .headerBack a{
+         color: var(--blanco);
+        
+        
+}
+     .headerBack span{
+         color: var(--blanco);
+         font-weight: 500;
+       
+        
+}
+.scrollNav{
+   background-color: var(--color1);
+   position: fixed;
+   box-shadow: none;
+ 
+}
+}

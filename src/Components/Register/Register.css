@@ -1,0 +1,81 @@
+.imgPefilRegister img{
+    border-radius: 100% ;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 2px solid var(--blanco);
+    margin-top: -2rem;
+  
+ 
+}
+.bannerRegister img{
+    display: flex;
+    width: 50vh;
+    height: 110px;
+    border-radius:7px ;
+    object-fit: cover;
+}
+
+.imgsPofile{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content:center ;
+   
+}
+.imgPefilRegister{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+}
+
+.inputsAuthImage{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  
+    
+}
+.column {
+    color: var(--text-color2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.inputsAuthImage input{
+    background-color: var(--gris2);
+    padding: 7px;
+    border-radius: 6px ;
+    color: var(--gris2);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    place-content: center;
+   
+}
+@media (max-width: 500px){
+    .bannerRegister img{
+        display: flex;
+        width: 100%;
+        height: 80px;
+        border-radius:7px ;
+        
+    }
+    .imgPefilRegister img{
+        border-radius: 100% ;
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border: 2px solid var(--blanco);
+        margin-top: -2rem;
+      
+        
+}
+
+}
