@@ -52,7 +52,10 @@ export default function IndexLayout() {
                 </>
             ) : (
                 <section className={isScreenLarge ? '' : "section"} >
+
+
                     <Auth />
+
                 </section>
             )}
         </div>

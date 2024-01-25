@@ -83,15 +83,18 @@ try {
                     // Resto de la información del formulario (puedes agregar más campos si es necesario)
                     $nombre = $_POST['nombre'];
                     $rol = "usuario";
-
+                    $imagen = $_POST['imagen'];
+                    $banner = $_POST['banner'];
                     // Insertar nuevo usuario en la base de datos
-                    $sqlInsert = "INSERT INTO `usuarios` (nombre, email, contrasena, rol, createdAt) 
-                                  VALUES (:nombre, :email, :contrasena, :rol, :createdAt)";
+                    $sqlInsert = "INSERT INTO `usuarios` (nombre, email, contrasena, rol, imagen, banner, createdAt) 
+                                  VALUES (:nombre, :email, :contrasena, :rol, :imagen, :banner, :createdAt)";
                     $stmt = $conexion->prepare($sqlInsert);
                     $stmt->bindParam(':nombre', $nombre);
                     $stmt->bindParam(':email', $email);
                     $stmt->bindParam(':contrasena', $hashContrasena);
                     $stmt->bindParam(':rol', $rol);
+                    $stmt->bindParam(':imagen', $imagen);
+                    $stmt->bindParam(':banner', $banner);
                     $stmt->bindParam(':createdAt', $fechaActual);
 
                     // Ejecutar la consulta
@@ -107,6 +110,7 @@ try {
                         "idUsuario" => $_SESSION['usuario_id'],
                         "nombre" => $nombre,
                         "email" => $email,
+                        "imagen" => $imagen,
                         // Agregar cualquier otro campo que desees incluir
                     ];
 

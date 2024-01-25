@@ -11,7 +11,7 @@ import { faEdit, faEnvelope, faLink, faCalendarAlt, faUser } from '@fortawesome/
 import { Link as Anchor } from 'react-router-dom';
 import { useNavigate, } from 'react-router';
 const Perfil = () => {
-    let { idUsuario, nombre } = useParams();
+    const { idUsuario, nombre } = useParams();
     const [usuario, setUsuario] = useState({});
     const [loading, setLoading] = useState(true);
     const [sinConexion, setSinConexion] = useState(false);
@@ -29,7 +29,9 @@ const Perfil = () => {
     const [nuevoTelefono, setNuevoTelefono] = useState('');
     const nombreSinGuiones = nombre.replace(/_/g, ' ');
     const [modalVisible, setModalVisible] = useState(false);
-    const [selectedSection, setSelectedSection] = useState('info'); // Estado para controlar la sección seleccionada
+    const [selectedSection, setSelectedSection] = useState('info');
+    const [nuevaImagen, setNuevaImagen] = useState(null);
+    const [nuevoBanner, setNuevoBanner] = useState(null);
     const navigate = useNavigate();
     const handleSectionChange = (section) => {
         setSelectedSection(section);
@@ -122,6 +124,8 @@ const Perfil = () => {
                 toast.error(error);
             });
     };
+
+
     const [imagenPreview, setImagenPreview] = useState(null);
     const [bannerPreview, setBannerPreview] = useState(null);
 
@@ -135,8 +139,7 @@ const Perfil = () => {
             setPreview(previewURL);
         }
     };
-    const [nuevaImagen, setNuevaImagen] = useState(null);
-    const [nuevoBanner, setNuevoBanner] = useState(null);
+
     const handleEditarImagenBanner = () => {
         const formData = new FormData();
         formData.append('idUsuario', idUsuario);
@@ -204,7 +207,7 @@ const Perfil = () => {
                 return response.json();
             })
             .then(data => {
-                setUsuarioLogin(data);
+                setUsuario(data);
 
                 console.log(data)
             })
@@ -213,7 +216,6 @@ const Perfil = () => {
 
             });
     }, []);
-
     return (
         <div className='perfilContainer'>
             <ToastContainer />
@@ -234,41 +236,47 @@ const Perfil = () => {
                         </div>
                     ) : usuario.idUsuario ? (
                         <div className='perfilInfo'>
-                            <img src={usuario.banner} alt="banner" className='imgbanner' />
-                            <div className='perfilInfoText'>
-                                <img src={usuario.imagen} alt="banner" className='imgProfile' />
-                                <div className='deFlexPerfil'>
-                                    <h3 className='nombre'>{usuario.nombre}</h3>
 
+                            <div className='PerfilPrincipal'>
+                                <img src={usuario.banner} alt="banner" className='imgbanner' />
+                                <div className='perfilInfoText'>
 
-                                    {usuario?.idUsuario === usuarioLogin?.idUsuario ? (
-                                        <button onClick={openModal} className='editBtn'>
-                                            <FontAwesomeIcon icon={faEdit} />
+                                    <div className='imgPeriflHeight'>
+                                        <img src={usuario.imagen} alt="banner" className='imgProfile' />
+                                    </div>
+                                    <div className='deFlexPerfil'>
+                                        <h3 className='nombre'>{usuario.nombre}</h3>
+
+                                        {usuarioLogin.idUsuario === usuario.idUsuario && (
+                                            <button onClick={openModal} className='editBtn'>
+                                                <FontAwesomeIcon icon={faEdit} />
+                                            </button>
+                                        )
+
+                                        }
+                                    </div>
+
+                                    <p>{usuario.perfil}</p>
+
+                                    <div className='sectionButtons'>
+                                        <button
+                                            className={selectedSection === 'info' ? 'selected' : ''}
+                                            onClick={() => handleSectionChange('info')}
+                                        >
+                                            Información
                                         </button>
-                                    ) : (
-                                        <>
-
-                                        </>
-                                    )}
+                                        <button
+                                            className={selectedSection === 'public' ? 'selected' : ''}
+                                            onClick={() => handleSectionChange('public')}
+                                        >
+                                            Publicaciones
+                                        </button>
+                                    </div>
                                 </div>
-                                <p>{usuario.perfil}</p>
 
-                                <div className='sectionButtons'>
-                                    <button
-                                        className={selectedSection === 'info' ? 'selected' : ''}
-                                        onClick={() => handleSectionChange('info')}
-                                    >
-                                        Información
-                                    </button>
-                                    <button
-                                        className={selectedSection === 'public' ? 'selected' : ''}
-                                        onClick={() => handleSectionChange('public')}
-                                    >
-                                        Publicaciones
-                                    </button>
-                                </div>
 
                             </div>
+
 
                             <div className='sectionInfo' style={{ display: selectedSection === 'info' ? 'flex' : 'none' }}>
                                 <div className='datosContain'>
@@ -276,18 +284,13 @@ const Perfil = () => {
                                         <strong>Se unió el - </strong> {new Date(usuario.createdAt).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
 
                                     <p> <FontAwesomeIcon icon={faUser} className='iconPerfil' /> <strong>Tipo de Cuenta - </strong> {usuario.rol}</p>
-                                    {usuario.fechaNacimiento !== '0000-00-00' ? (
-                                        <p> <FontAwesomeIcon icon={faCalendarAlt} className='iconPerfil' /> <strong>Nacimiento - </strong>  {new Date(usuario.fechaNacimiento).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                    <p> <FontAwesomeIcon icon={faCalendarAlt} className='iconPerfil' /> <strong>Nacimiento - </strong>  {new Date(usuario.fechaNacimiento).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
 
-                                    ) : (
-                                        <>
-
-                                        </>
-                                    )}
 
                                     <Anchor to={`mailto:${usuario.email}`} target='blank'>
                                         <FontAwesomeIcon icon={faEnvelope} className='iconPerfil' /> {usuario.email}
                                     </Anchor>
+
 
                                     {usuario.linkedin ? (
                                         <Anchor to={`${usuario.linkedin}`} target='blank'>
@@ -324,7 +327,7 @@ const Perfil = () => {
                                         </>
                                     )}
 
-                                    {usuario.telefono === 0 ? (
+                                    {usuario.telefono ? (
                                         <Anchor to={`tel:${usuario.telefono}`}>
                                             <i class='fa fa-whatsapp'></i>  {usuario.telefono}
                                         </Anchor>
@@ -332,6 +335,7 @@ const Perfil = () => {
                                         <>
                                         </>
                                     )}
+
 
 
                                 </div>
@@ -543,6 +547,7 @@ const Perfil = () => {
                             )}
 
 
+
                         </div>
                     ) : (
                         <div className='perfilInfo'>
@@ -550,9 +555,10 @@ const Perfil = () => {
                         </div>
                     )}
                 </>
-            )}
+            )
+            }
 
-        </div>
+        </div >
     );
 };
 

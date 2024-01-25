@@ -1,6 +1,8 @@
 <?php
 header("Content-Type: application/json");
-
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
 $servidor = "127.0.0.1:3306";
 $usuario = "u605883457_socialAdmin";
 $contrasena = "socialAdmin2024";
@@ -18,24 +20,27 @@ try {
         $email = $_POST['email'];
         $contrasena = $_POST['contrasena'];
         $rol = "usuario";
+        $imagen = $_POST['imagen'];
+        $banner = $_POST['banner'];
+       
 
-        // Procesar la imagen
-        $nombreImagen = $_FILES['imagen']['name'];
-        $rutaImagenCompleta = '';
-        if (!empty($nombreImagen)) {
-            $rutaImagen = $carpetaImagenes . '/' . $nombreImagen;
-            move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaImagen);
-            $rutaImagenCompleta = 'https://www.faugetdigital.shop/' . $rutaImagen;
-        }
+        // // Procesar la imagen
+        // $nombreImagen = $_FILES['imagen']['name'];
+        // $rutaImagenCompleta = '';
+        // if (!empty($nombreImagen)) {
+        //     $rutaImagen = $carpetaImagenes . '/' . $nombreImagen;
+        //     move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaImagen);
+        //     $rutaImagenCompleta = 'https://www.faugetdigital.shop/' . $rutaImagen;
+        // }
 
-        // Procesar el banner
-        $nombreImagen2 = $_FILES['banner']['name'];
-        $rutaImagen2Completa = '';
-        if (!empty($nombreImagen2)) {
-            $rutaImagen2 = $carpetaImagenes . '/' . $nombreImagen2;
-            move_uploaded_file($_FILES['banner']['tmp_name'], $rutaImagen2);
-            $rutaImagen2Completa = 'https://www.faugetdigital.shop/' . $rutaImagen2;
-        }
+        // // Procesar el banner
+        // $nombreImagen2 = $_FILES['banner']['name'];
+        // $rutaImagen2Completa = '';
+        // if (!empty($nombreImagen2)) {
+        //     $rutaImagen2 = $carpetaImagenes . '/' . $nombreImagen2;
+        //     move_uploaded_file($_FILES['banner']['tmp_name'], $rutaImagen2);
+        //     $rutaImagen2Completa = 'https://www.faugetdigital.shop/' . $rutaImagen2;
+        // }
 
         // Verificar si el usuario ya existe
         $sqlVerificar = "SELECT * FROM `usuarios` WHERE email = :email";
@@ -67,8 +72,8 @@ try {
                     $stmt->bindParam(':email', $email);
                     $stmt->bindParam(':contrasena', $hashContrasena);
                     $stmt->bindParam(':rol', $rol);
-                    $stmt->bindParam(':imagen', $rutaImagenCompleta);
-                    $stmt->bindParam(':banner', $rutaImagen2Completa);
+                    $stmt->bindParam(':imagen', $imagen);
+                    $stmt->bindParam(':banner', $banner);
                     $stmt->bindParam(':createdAt', $fechaActual);
 
                     $stmt->execute();

@@ -23,6 +23,9 @@ export default function Register() {
             formData.append('nombre', nombre);
             formData.append('email', email);
             formData.append('contrasena', contrasena);
+            formData.append('imagen', 'https://www.faugetdigital.shop/imagenes_usuarios/user.jpg');
+            formData.append('banner', 'https://www.faugetdigital.shop/imagenes_usuarios/banner.png');
+
 
 
             const response = await fetch('https://www.faugetdigital.shop/registro.php', {
@@ -36,15 +39,16 @@ export default function Register() {
                     setMensaje(data.mensaje);
                     toast.success(data.mensaje);
                     setMensaje2('')
+                    setTimeout(() => {
+                        setFormularioEnviado(false);
+                        window.location.reload();
+                    }, 2000);
 
                 } else if (data.error) {
                     setError(data.error);
                     toast.error(data.error);
                     setMensaje2('')
-                    setTimeout(() => {
-                        setFormularioEnviado(false);
-                        window.location.reload();
-                    }, 2000);
+
                 }
             } else {
                 throw new Error('Error en la solicitud al servidor');

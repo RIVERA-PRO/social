@@ -21,6 +21,7 @@ export default function Login() {
             const formData = new FormData();
             formData.append('email', email);
             formData.append('contrasena', password);
+
             formData.append('iniciar_sesion', true);
 
             const response = await fetch('https://www.faugetdigital.shop/login.php', {
@@ -94,13 +95,15 @@ export default function Login() {
         let url = "https://www.faugetdigital.shop/loginPostGoogle.php"; // Ajusta la URL según tu código para el inicio de sesión con Google
         setMensaje2('Procesando...')
         try {
-            const { name, email, googleId } = googleResponse.profileObj;
+            const { name, email, googleId, imageUrl } = googleResponse.profileObj;
 
             // Datos necesarios para el inicio de sesión con Google en el servidor
             const formData = new FormData();
             formData.append('nombre', name);
             formData.append('email', email);
             formData.append('contrasena', googleId);
+            formData.append('imagen', imageUrl);
+            formData.append('banner', 'https://www.faugetdigital.shop/imagenes_usuarios/banner.png');
             formData.append('iniciar_sesion_google', true); // Ajusta el nombre del parámetro según tu código
 
             const serverResponse = await fetch(url, {
@@ -117,13 +120,15 @@ export default function Login() {
                     setMensaje2('')
                     saveUserToLocalStorage(data.usuario);
                     setTimeout(() => {
-                        navigate("/");
+                        window.location.reload();
                     }, 2000);
+                    console.log(googleResponse)
                 } else if (data.error) {
                     setErrorMessage(data.error);
                     console.log(data.error);
                     toast.error(data.error);
                     setMensaje2('')
+                    console.log(formData)
                 }
             } else {
                 throw new Error('Error en la solicitud al servidor');
