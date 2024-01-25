@@ -1,0 +1,215 @@
+.NewMultaContain{
+    padding: 0px 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-content: center;
+    background-color: var(--blanco);
+   
+}
+#crearMultaForm{
+    width: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-content: center;
+    align-self: center;
+    align-content: center;
+    padding-top: 100px;
+}
+.img_selected{
+    width: 100%;
+    object-fit: cover;
+    height: 17vh;
+    border-radius: 10px;
+    border: 0.1px solid #f8004f79;
+   
+  
+}
+#topMargin{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.deFlexImg{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+}
+.deFlexImg input{
+   width: 100%;
+   padding:  5px ;
+  
+   border: none;
+   background-color: #f2f2f2;
+  
+   border: 1px solid #dbd5d5;
+   border-radius: 7px;
+ 
+}
+.deFlexInput{
+    border: none;
+   
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--text-color2);
+}
+.deFlexInput button{
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
+.inputCreate select{
+    padding: 10px;
+    border-radius: 7px;
+  
+}
+.inputCreate option{
+    padding: 10px;
+    border-radius: 7px;
+   
+   
+  
+}
+.deFlexInput input{
+  padding: 10px;
+  border: none;
+  width: 100%;
+   }
+.imgBg{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+   
+    
+}
+.imgBg label{
+    background-color:var(--color1);
+    color: var(--blanco);
+    width: 100%;
+    object-fit: cover;
+    height: 17vh;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+.inputCreate{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 2rem;
+}
+.inputCreate input{
+    border: none;
+    padding: 10px;
+   
+    border-bottom: 1px solid var(--text-color2);
+   
+}
+.btn{
+    background-color: var(--color1);
+    padding: 15px;
+    border: none;
+    border-radius: 30rem;
+    color: var(--blanco);
+    font-size: 17px;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+.btnLoading{
+    background-color:#f8004f79;
+    padding: 15px;
+    border: none;
+    border-radius: 30rem;
+    color: var(--blanco);
+    font-size: 17px;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+.modal-content{
+    background-color: var(--blanco);
+    border-radius: 10px;
+    padding: 10px 20px;
+    height: 80vh;
+    width: 70vh;
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.btnLocation{
+    background-color: var(--color1);
+    padding: 15px;
+    border: none;
+    border-radius: 30rem;
+    color: var(--blanco);
+    font-size: 17px;
+    margin-top: 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.inputCreate button{
+    padding: 15px;
+    border: none;
+    border-radius: 30rem;
+    color: var(--blanco);
+    font-size: 17px;
+    margin-top: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.close {
+    font-size: 30px;
+    font-weight: 500;
+    display: flex;
+    justify-content: right;
+    cursor: pointer;
+  
+}
+@media (max-width: 1024px) {
+    #crearMultaForm{
+        width: 100%;
+        padding-top: 50px;
+      
+    }
+    .NewMultaContain{
+        padding: 0px 9% 100px;
+       
+        border-radius: 00px 40px 0px 0px ;
+        overflow: auto;
+        max-height: 90vh;
+       
+      
+}
+.deFlexImg{
+    flex-direction: column;
+   
+}
+   
+}
+@media (max-width: 700px){
+    .modal-content{
+        border-radius: 10px 10px 0px 0px;
+        width: 100%;
+}
+.img_selected{
+  
+    height: 100px;
+    
+}
+.imgBg label{
+    height: 100px;
+}
+}

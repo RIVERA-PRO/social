@@ -43,11 +43,15 @@
   display: none;
 }
 .columnGridRitgh{
-
+position: relative;
 }
 .MainGrid{
     padding: 100px 5%;
+    flex-direction: column;
 
+  }
+  .feed{
+    width: 100%;
   }
 
 }

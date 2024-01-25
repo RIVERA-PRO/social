@@ -5,8 +5,9 @@ import NavbarMobile from '../Components/NavbarMobile/NavbarMobile';
 import Spiner from '../Components/Spiner/Spiner';
 import NavbarProfile from '../Components/NavbarProfile/NavbarProfile';
 import Auth from '../Components/Auth/Auth';
-import UsuariosData from '../Components/UsuariosData/UsuariosData';
+
 import MainGrid from '../Components/MainGrid/MainGrid';
+
 export default function IndexLayout() {
     const [usuario, setUsuario] = useState({});
     const [loading, setLoading] = useState(true);
@@ -53,8 +54,14 @@ export default function IndexLayout() {
             ) : (
                 <section className={isScreenLarge ? '' : "section"} >
 
+                    <section className={isScreenLarge ? '' : "section"} >
+                        {isScreenLarge ? <Header /> : <NavbarProfile />}
+                        {isScreenLarge ? '' : <NavbarMobile />}
 
-                    <Auth />
+                        <MainGrid />
+
+                    </section>
+
 
                 </section>
             )}

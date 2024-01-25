@@ -1,0 +1,48 @@
+.PublicacionContainer{
+    padding: 10px 20px;
+    
+    height: 60vh;
+    background-color: var(--blanco);
+}
+
+.cardPublicacion{
+    display: flex;
+    flex-direction: column;
+    
+    margin-bottom: 2rem;
+}
+.cardPublicacion a img{
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    border: 1px solid var(--color1) ;
+   
+}
+.cardPublicacion h5{
+    color: var(--text-color2);
+    font-weight: 500;
+}
+.imgsPublic{
+    display: flex;
+    overflow-x: scroll;
+    gap: 10px;
+    width: 100%;
+}
+
+.imgsPublic img{
+    object-fit: cover;
+    border-radius: 10px;
+    height: 60vh;
+    width: 100%;
+  
+}
+
+@media (max-width: 1020px){
+    .imgsPublic img{
+        object-fit: cover;
+        border-radius: 10px;
+        height: 30vh;
+        width:90%;
+      
+    }
+}
