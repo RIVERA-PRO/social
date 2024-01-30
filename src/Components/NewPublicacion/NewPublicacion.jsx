@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './NewPublicacion.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
 
 export default function NewPublicacion() {
     const [mensaje, setMensaje] = useState('');
@@ -55,8 +56,8 @@ export default function NewPublicacion() {
 
 
     }, []);
-    const crearMulta = async () => {
-        const form = document.getElementById("crearMultaForm");
+    const crear = async () => {
+        const form = document.getElementById("crearForm");
         const formData = new FormData(form);
         const resetForm = () => {
             form.reset();
@@ -80,7 +81,7 @@ export default function NewPublicacion() {
             !formData.get('imagen2') ||
             !formData.get('imagen3') ||
             !formData.get('imagen4') ||
-            formData.set('idUsuario', 18)
+            formData.set('idUsuario', idUsuario)
 
         ) {
             toast.error('Por favor, complete todos los campos correctamente.');
@@ -120,101 +121,121 @@ export default function NewPublicacion() {
 
 
     return (
-        <div className='NewMultaContain'>
+        <div className='NewContain'>
             <ToastContainer />
-            <form id="crearMultaForm">
+            <form id="crearForm">
 
-                <div className='deFlexImg'>
-                    <div className='imgBg' >
-                        <label htmlFor="imagen1" style={{ display: isImage1Selected ? 'none' : 'blobk' }}>Imagen:</label>
-                        {isImage1Selected && <img src={imagenPreview1} alt="Vista previa 1" className='img_selected' />}
-                        <input
-                            type="file"
-                            id="imagen1"
-                            name="imagen1"
-                            accept="image/*"
-                            onChange={(e) => handleImagenChange(e, setImagenPreview1, setIsImage1Selected)}
-                            required
-
-                        />
-
-                    </div>
-
-                    <div className='imgBg' >
-                        <label htmlFor="imagen2" style={{ display: isImage2Selected ? 'none' : 'blobk' }}>Imagen2:</label>
-                        {isImage2Selected && <img src={imagenPreview2} alt="Vista previa 2" className='img_selected' />}
-                        <input
-                            type="file"
-                            id="imagen2"
-                            name="imagen2"
-                            accept="image/*"
-                            onChange={(e) => handleImagenChange(e, setImagenPreview2, setIsImage2Selected)}
-                            required
-
-                        />
-
-                    </div>
-
-                    <div className='imgBg' >
-                        <label htmlFor="imagen3" style={{ display: isImage3Selected ? 'none' : 'blobk' }}>Imagen3:</label>
-                        {isImage3Selected && <img src={imagenPreview3} alt="Vista previa 3" className='img_selected' />}
-                        <input
-                            type="file"
-                            id="imagen3"
-                            name="imagen3"
-                            accept="image/*"
-                            onChange={(e) => handleImagenChange(e, setImagenPreview3, setIsImage3Selected)}
-                            required
-
-                        />
-
-                    </div>
-
-                    <div className='imgBg' >
-                        <label htmlFor="imagen4" style={{ display: isImage4Selected ? 'none' : 'blobk' }}>Imagen4:</label>
-                        {isImage4Selected && <img src={imagenPreview4} alt="Vista previa 4" className='img_selected' />}
-                        <input
-                            type="file"
-                            id="imagen4"
-                            name="imagen4"
-                            accept="image/*"
-                            onChange={(e) => handleImagenChange(e, setImagenPreview4, setIsImage4Selected)}
-                            required
-
-                        />
-
-                    </div>
+                <div className='userPhoto'>
+                    <img src={usuario.imagen} alt="imagen" className='imgProfi' />
+                    <hr />
                 </div>
 
+                <div>
+
+                    <div className='inputCreate'>
+                        <label htmlFor="descripcion"></label>
+                        <textarea
+                            type="text"
+                            id="descripcion"
+                            name="descripcion"
+                            required
+                            placeholder="¿Qué estás pensando?"
+
+
+                        />
+                    </div>
+                    {(isImage1Selected || isImage2Selected || isImage3Selected || isImage4Selected) &&
+                        <div className='imgsPubliCreate'>
+                            {isImage1Selected && <img src={imagenPreview1} alt="Vista previa 1" />}
+                            {isImage2Selected && <img src={imagenPreview2} alt="Vista previa 2" />}
+                            {isImage3Selected && <img src={imagenPreview3} alt="Vista previa 3" />}
+                            {isImage4Selected && <img src={imagenPreview4} alt="Vista previa 4" />}
+                        </div>
+                    }
+
+
+                    <div className='deFlexImg'>
+                        <div className='deFlexs'>
+                            <div className='imgBg' >
+                                <label htmlFor="imagen1" > <FontAwesomeIcon icon={faImage} /></label>
+
+                                <input
+                                    type="file"
+                                    id="imagen1"
+                                    name="imagen1"
+                                    accept="image/*"
+                                    onChange={(e) => handleImagenChange(e, setImagenPreview1, setIsImage1Selected)}
+                                    required
+
+                                />
+
+                            </div>
+
+                            <div className='imgBg' >
+                                <label htmlFor="imagen2" > <FontAwesomeIcon icon={faImage} /></label>
+
+                                <input
+                                    type="file"
+                                    id="imagen2"
+                                    name="imagen2"
+                                    accept="image/*"
+                                    onChange={(e) => handleImagenChange(e, setImagenPreview2, setIsImage2Selected)}
+                                    required
+
+                                />
+
+                            </div>
+
+                            <div className='imgBg' >
+                                <label htmlFor="imagen3" > <FontAwesomeIcon icon={faImage} /></label>
+
+                                <input
+                                    type="file"
+                                    id="imagen3"
+                                    name="imagen3"
+                                    accept="image/*"
+                                    onChange={(e) => handleImagenChange(e, setImagenPreview3, setIsImage3Selected)}
+                                    required
+
+                                />
+
+                            </div>
+
+                            <div className='imgBg' >
+                                <label htmlFor="imagen4"> <FontAwesomeIcon icon={faImage} /></label>
+
+                                <input
+                                    type="file"
+                                    id="imagen4"
+                                    name="imagen4"
+                                    accept="image/*"
+                                    onChange={(e) => handleImagenChange(e, setImagenPreview4, setIsImage4Selected)}
+                                    required
+
+                                />
+
+                            </div>
+                        </div>
+                        {mensaje ? (
+                            <button type="button" className='btnLoading' disabled>
+                                {mensaje}
+                            </button>
+                        ) : (
+                            <button type="button" onClick={crear} className='btn'>
+                                Postear
+                            </button>
+                        )}
+                    </div>
 
 
 
 
-                <div className='inputCreate'>
-                    <label htmlFor="descripcion">descripcion:</label>
-                    <input
-                        type="text"
-                        id="descripcion"
-                        name="descripcion"
-                        required
-                        placeholder="descripcion"
 
 
-                    />
+
+
+
                 </div>
-
-
-
-
-                {mensaje ? (
-                    <button type="button" className='btnLoading' disabled>
-                        {mensaje}
-                    </button>
-                ) : (
-                    <button type="button" onClick={crearMulta} className='btn'>
-                        Enviar
-                    </button>
-                )}
 
             </form>
 

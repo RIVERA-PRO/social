@@ -3,7 +3,7 @@ import './NavbarMobile.css';
 import { Link as Anchor, useNavigate, useLocation } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartPie, faShoppingCart, faSearch, faHome, faPlus, faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faShoppingCart, faSearch, faHome, faPlus, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -102,8 +102,8 @@ export default function NavbarMobile() {
             </Anchor>
 
             <Anchor to={`usuario/${usuario?.idUsuario}/${usuario?.nombre?.replace(/\s+/g, '_')}`} className={location.pathname === '/usuario' ? 'active2' : ''} onClick={closeModal} >
-                <img src={usuario?.imagen} alt="imagen" />
-                <span> {usuario?.nombre?.slice(0, 4)}</span>
+                <FontAwesomeIcon icon={faUser} />
+                <span>Perfil</span>
             </Anchor>
 
 

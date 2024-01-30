@@ -8,19 +8,19 @@ import NewPublicacion from '../NewPublicacion/NewPublicacion'
 export default function MainGrid() {
     return (
         <div className='MainGrid'>
-            <div className='columnGridlef'>
+            {/* <div className='columnGridlef'>
                 <UserInfoMain />
                 <EnlacesMain />
-            </div>
+            </div> */}
 
             <div className='feed'>
                 <NewPublicacion />
                 <AllPublicaciones />
             </div>
 
-            <div className='columnGridRitgh'>
+            {/* <div className='columnGridRitgh'>
                 <AllUsuarios />
-            </div>
+            </div> */}
         </div>
     )
 }

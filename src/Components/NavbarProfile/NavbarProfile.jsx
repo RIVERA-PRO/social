@@ -55,11 +55,38 @@ export default function NavbarProfile() {
         <div className={isScrolled ? 'NavbarProfileContain scrolled' : 'NavbarProfileContain'}>
 
 
-            <Anchor to={`/`} className='logoNav'>
-                <img src={Logo} alt=" Efecto vial Web" />
-            </Anchor>
+            {loading ? (
+                <div className='InfoPerfilLoading'>
+                    <span className='InfoPerfilLoading'>
+
+                    </span>
+                    <div className='InfoPerfilLoadingText'>
+                        <h5 ></h5>
+                        <h6 ></h6>
+                    </div>
+                </div>
+            ) : usuario.idUsuario ? (
+                <Anchor to={`/`} className='userPerfil'>
+                    <img src={usuario.imagen} alt="imagen" />
+                    <div>
+                        <strong>{usuario.nombre}</strong>
+                        <h5>{usuario.email}</h5>
+                    </div>
+                </Anchor>
+            ) : (
+                <div className='InfoPerfilLoading'>
+                    <span className='InfoPerfilLoading'>
+
+                    </span>
+                    <div className='InfoPerfilLoadingText'>
+                        <h5 ></h5>
+                        <h6 ></h6>
+                    </div>
+                </div>
+            )}
 
             <div className={`nav_items ${isOpen && "open"}`} >
+
 
                 <InfoUserNav />
 

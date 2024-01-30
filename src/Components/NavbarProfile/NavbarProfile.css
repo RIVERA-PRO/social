@@ -1,18 +1,19 @@
 .NavbarProfileContain{
    display: flex;
- 
    justify-content: space-between;
    align-items: center;
    padding: 10px 7% ;
    background-color: var(--blanco);
    color: var(--blanco)!important;
-  
    position: fixed;
    width: 100%;
    z-index: 1000;
-   box-shadow: -25px 10px 10px -10px rgba(0, 0, 0, 0.2);
-
-
+   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.085);
+   border-radius: 0px 0px 0px 20px;
+   -webkit-border-radius: 0px 0px 0px 20px;
+   -moz-border-radius: 0px 0px 0px 20px;
+   -ms-border-radius: 0px 0px 0px 20px;
+   -o-border-radius: 0px 0px 0px 20px;
 }
 .deFlexNav{
     display: flex;
@@ -104,10 +105,10 @@
     align-items: center;
     gap: 10px;
 }
-.InfoPerfilLoading img{
+.InfoPerfilLoading span {
     width: 50px;
     height: 50px;
-    background-color: black;
+    background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
     border-radius: 100%;
     object-fit: cover;
 }
@@ -141,23 +142,46 @@
 }
 
 .NavbarProfileContain {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 7%;
-    background-color: var(--blanco);
-    color: var(--blanco)!important;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: -25px 10px 10px -10px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    transition: transform 0.3s ease-in-out; /* Agregamos una transición */
+   
+    padding: 10px 3%;
+   
 }
 
 .NavbarProfileContain.scrolled {
     position: absolute;
     transform: translateY(-100%);
 }
+.userPerfil img{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+   
+}
+.userPerfil{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.userPerfil strong{ 
+   color: var(--text-color);
+   font-weight: 500;
+   font-size: 15px;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   max-width: 30ch;
+}
+.userPerfil h5{ 
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 30ch;
+   
+    
+ }
 @media (max-width: 1024px) {
     .espacio{
         height:4rem;

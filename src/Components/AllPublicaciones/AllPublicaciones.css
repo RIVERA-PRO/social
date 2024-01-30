@@ -1,48 +1,418 @@
 .PublicacionContainer{
-    padding: 10px 20px;
+  
     
-    height: 60vh;
-    background-color: var(--blanco);
+  
+  
 }
 
 .cardPublicacion{
     display: flex;
-    flex-direction: column;
+    background-color: var(--blanco);
+    margin-bottom: 1rem;
+    gap: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.042);
+    padding: 10px 20px 10px 10px;
+    overflow: hidden;
+    width: 100%;
     
-    margin-bottom: 2rem;
+    
 }
 .cardPublicacion a img{
     width: 45px;
     height: 45px;
     border-radius: 100%;
     border: 1px solid var(--color1) ;
+
+   
    
 }
-.cardPublicacion h5{
+.descripcion {
     color: var(--text-color2);
-    font-weight: 500;
-}
-.imgsPublic{
-    display: flex;
-    overflow-x: scroll;
-    gap: 10px;
-    width: 100%;
+    font-weight: 400;
+  
+    width: 87%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
+.descripcion button{
+    background-color: transparent;
+    border: none;
+    color: var(--color1);
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+.userPhoto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    
+}
+.userPhoto hr{
+  height: 100%;
+  border: 0.1px solid var(--border);
+  border-radius: 10px;
+  
+}
+.userName {
+    color: var(--text-color2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+   
+   
+}
+.userName strong {
+    color: var(--text-color2);
+    font-weight: 500;
+    justify-content: space-between;
+    text-overflow: ellipsis;
+    max-width: 20ch;
+}
+.userName h5 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40ch;
+    font-weight: 400;
+    font-size: 12px;
+}
+.userName h4{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 20ch;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.imgsPublic{
+    display: none;
+    overflow-x: scroll;
+    gap: 10px;
+    margin-left: -14%;
+    width: 75vh;
+    padding-left: 14%;
+    padding-right: 37%;
+}
+.imgsPublic::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+
+    cursor: pointer;
+    background-color: transparent;
+
+}
+
+.imgsPublic::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px;
+   
+}
 .imgsPublic img{
+   
     object-fit: cover;
     border-radius: 10px;
-    height: 60vh;
+    max-height: 60vh;
+    width: 100%;
+
+
+}
+#swiper_container_scroll{
+    display: flex;
+    background-color: var(--gris);
+   
+    width: 100%;
+    border-radius: 20px;
+    min-width: 30rem;
+    max-width:100% ;
+}
+#swiper_container_scroll img{
+    object-fit: cover;
+    border-radius: 20px;
+    height: 40vh;
+    max-height: 60vh;
+    width: 100%;
+   
+  
+   
+}
+#SwiperSlide-scroll{
+    object-fit: cover;
+    margin-right: 1rem;
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+   
+}
+.swiper-pagination {
+        
+    margin-left: 8%;
+}
+
+.cardComentario{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+.cardMegusta{
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    margin-bottom: 1rem;
+    width: 100%;
+    background-color: var(--gris);
+}
+.comentario{
+    background-color: var(--gris);
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     width: 100%;
   
 }
 
-@media (max-width: 1020px){
-    .imgsPublic img{
-        object-fit: cover;
-        border-radius: 10px;
-        height: 30vh;
-        width:90%;
+.comentario p{
+   
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--text-color2);
+  
+}
+.formComent{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+   
+   
+}
+.formComent textarea{
+    border-radius: 30rem;
+    padding: 10px 10px 0;
+   width: 100%;
+   border: 1px solid var(--border) ;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   
+}
+.formComent button{
+    border-radius: 10px;
+    padding: 5px ;
+    border: none;
+    cursor: pointer;
+    color: var(--color1);
+    font-size:25px;
+    background-color: transparent;
+   
+}
+.formComent img{
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    border: 1px solid var(--color1) ;
+    
+}
+.deFlexText {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modalBg {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.048);
+    padding: 10px;
+    z-index: 99909999;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 7px ;
+    transition: all .40s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modalContenido{
+    background-color: var(--blanco);
+    border-radius: 10px;
+    padding: 20px 30px;
+    height: 80vh;
+    width: 36rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+}
+.deFlexback{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.deFlexback h5{
+    color: var(--text-color2);
+    font-weight: 400;
+    font-size: 14px;
+}
+.deFlexback button{
+    color: var(--text-color2);
+    font-weight: 400;
+    font-size: 14px;
+    background-color: transparent ;
+    border: none;
+}
+.comentariosModal::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+
+    cursor: pointer;
+    background-color: transparent;
+
+}
+
+.comentariosModal::-webkit-scrollbar-thumb {
+    background-color: var(--color1);
+    border-radius: 10px;
+   
+}
+.comentariosModal{
+    overflow: auto;
+    height: 70vh;
+    width: 100%;
+}
+.interaciones{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    border-top: 0.1px solid var(--border);
+    width: 100%;
+    border-radius: 10px;
+  
+    padding-top: 10px;
+}
+.interaciones button{
+    background-color: var(--gris);
+    padding: 7px 10px;
+    border-radius: 7px;
+    border: none;
+    color: var(--text-color2);
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 120px;
+    justify-content: center;
+   
+   
+}
+.interaciones span{
+    font-size: 15px;
+}
+.iconIntercacion{
+    font-size: 20px;
+}
+.iconIntercacion.liked {
+    color: var(--color1);
+}
+
+@media (max-width: 700px){
+    .modalContenido{
+        background-color: var(--blanco);
+       
+        padding: 20px ;
+        height: 90vh;
+        width: 100%;
+        
+    }
+    .comentariosModal{
+        overflow: auto;
+        height: 75vh;
+        width: 100%;
+    }
+    .modalBg {
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 0px;
+       
+    }
+   
+    .swiper-pagination {
+        
+        margin-left: -10%;
+    }
+    
+   
+    .descripcion {
+        
+        width: 50%;
+       
+    }
+    .imgsPublic{
+        display: flex;
+       
+       
+    }
+    .userName h5 {
+       
+        max-width: 30ch;
+        font-size: 12px;
+    }
+    #swiper_container_scroll{
+        display: none;
+        width: 0px;
       
+    }
+    .formComent{
+        width: 50%;
+    }
+    .formComent img{
+       
+        width: 30px;
+        height: 30px;
+       
+       
+    }
+    .formComent textarea{
+        border-radius: 30rem;
+        padding: 7px 10px 0;
+      
+       height: 2rem;
+       
+       
+       
+    }
+    .formComent button{
+        font-size: 20px;
+    }
+    .interaciones{
+        width: 50%;
+    }
+    .interaciones span{
+        font-size: 13px;
+    }
+    .interaciones button{
+        font-size: 14px;
+        width: auto;
+    }
+    .iconIntercacion{
+        font-size: 14px;
     }
 }

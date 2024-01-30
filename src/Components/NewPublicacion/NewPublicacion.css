@@ -1,32 +1,28 @@
-.NewMultaContain{
-    padding: 0px 10%;
-    width: 100%;
+.NewContain{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    place-content: center;
     background-color: var(--blanco);
-   
-}
-#crearMultaForm{
-    width: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    place-content: center;
-    align-self: center;
-    align-content: center;
-    padding-top: 100px;
-}
-.img_selected{
-    width: 100%;
-    object-fit: cover;
-    height: 17vh;
+    margin-bottom: 1rem;
+    gap: 10px;
     border-radius: 10px;
-    border: 0.1px solid #f8004f79;
+    box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.042);
+    padding: 10px 0px;
+    overflow: hidden;
    
-  
 }
+#crearForm{
+   
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+.imgProfi{
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 100%;
+    
+}
+
 #topMargin{
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -39,15 +35,23 @@
     gap: 1rem;
     justify-content: space-between;
 }
+.deFlexs{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+   
+
+}
 .deFlexImg input{
    width: 100%;
    padding:  5px ;
-  
+ 
    border: none;
    background-color: #f2f2f2;
   
    border: 1px solid #dbd5d5;
    border-radius: 7px;
+   display: none;
  
 }
 .deFlexInput{
@@ -62,75 +66,61 @@
     width: 100%;
     cursor: pointer;
 }
-.inputCreate select{
-    padding: 10px;
-    border-radius: 7px;
-  
-}
-.inputCreate option{
-    padding: 10px;
-    border-radius: 7px;
-   
-   
-  
-}
+
 .deFlexInput input{
   padding: 10px;
   border: none;
   width: 100%;
    }
-.imgBg{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-   
-    
-}
+
+
 .imgBg label{
     background-color:var(--color1);
     color: var(--blanco);
-    width: 100%;
+    width: 2rem;
     object-fit: cover;
-    height: 17vh;
-    border-radius: 10px;
+    height: 2rem;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-
+    cursor: pointer;
+   
 }
 .inputCreate{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 2rem;
+   
 }
-.inputCreate input{
+.inputCreate textarea{
     border: none;
     padding: 10px;
-   
-    border-bottom: 1px solid var(--text-color2);
-   
+   min-height: 10vh;
+   margin-bottom: 1rem;
+   margin-top: -5px;
+   width: 100%;
+   min-width: 30rem;
+   font-size: 20px;
 }
 .btn{
     background-color: var(--color1);
-    padding: 15px;
+    padding: 10px 20px;
     border: none;
     border-radius: 30rem;
     color: var(--blanco);
-    font-size: 17px;
-    margin-top: 2rem;
+    font-size: 14px;
     cursor: pointer;
 }
 .btnLoading{
-    background-color:#f8004f79;
-    padding: 15px;
+    background-color:#00ecf843;
+    background-color: var(--color1);
+    padding: 10px 20px;
     border: none;
     border-radius: 30rem;
     color: var(--blanco);
-    font-size: 17px;
-    margin-top: 2rem;
+    font-size: 14px;
     cursor: pointer;
 }
 .modal-content{
@@ -144,6 +134,7 @@
     
     
 }
+
 .btnLocation{
     background-color: var(--color1);
     padding: 15px;
@@ -178,38 +169,69 @@
     cursor: pointer;
   
 }
+.imgsPubliCreate{
+    display: flex;
+    overflow-x: scroll;
+    gap: 10px;
+    width: 100%;
+   padding-bottom: 1rem;
+   padding-right: 10%;
+   margin-bottom: 1rem;
+}
+.imgsPubliCreate img{
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    border-radius: 20px;
+    
+}
+.imgsPubliCreate::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+
+    cursor: pointer;
+    background-color: transparent;
+
+}
+
+.imgsPubliCreate::-webkit-scrollbar-thumb {
+    background-color: var(--color1);
+    border-radius: 10px;
+   
+}
 @media (max-width: 1024px) {
-    #crearMultaForm{
-        width: 100%;
-        padding-top: 50px;
+    #crearForm{
+      
+      padding: 0;
       
     }
-    .NewMultaContain{
-        padding: 0px 9% 100px;
-       
-        border-radius: 00px 40px 0px 0px ;
-        overflow: auto;
-        max-height: 90vh;
-       
-      
-}
+    
 .deFlexImg{
-    flex-direction: column;
+
+   width: 50%;
    
 }
    
 }
 @media (max-width: 700px){
-    .modal-content{
-        border-radius: 10px 10px 0px 0px;
-        width: 100%;
+   
+
+
+.deFlexs{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+   
+
 }
-.img_selected{
+.inputCreate textarea{
+    border: none;
+    padding: 10px;
   
-    height: 100px;
-    
-}
-.imgBg label{
-    height: 100px;
+   margin-bottom: 1rem;
+   margin-top: -5px;
+   width: 100%;
+   min-width: 100%;
+   font-size: 17px;
 }
 }
