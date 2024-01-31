@@ -11,7 +11,7 @@ import { faComment, faPaperPlane, faThumbsUp } from '@fortawesome/free-solid-svg
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const AllPublicaciones = () => {
-    const { idUsuario, nombre } = useParams();
+
     const [usuario, setUsuario] = useState({});
     const [publicaciones, setPublicaciones] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -22,9 +22,11 @@ const AllPublicaciones = () => {
     const [showModal, setShowModal] = useState(false);
     const [showModal2, setShowModal2] = useState(false);
     const [selectedPost, setSelectedPost] = useState(null);
-    const [comentarios, setComentarios] = useState({});  // Nuevo estado para almacenar todos los comentarios
-    const [nuevosComentarios, setNuevosComentarios] = useState({});  // Nuevo estado para almacenar nuevos comentarios
-    const [nuevosLikes, setNuevosLikes] = useState({}); // Nuevo estado para almacenar nuevos "Me gusta"
+    const [comentarios, setComentarios] = useState({});
+    const [nuevosComentarios, setNuevosComentarios] = useState({});
+    const [nuevosLikes, setNuevosLikes] = useState({});
+    const [modalStates, setModalStates] = useState({});
+    const [selectedPostId, setSelectedPostId] = useState(null);
 
     const swiperRef = useRef(null);
 
@@ -46,6 +48,9 @@ const AllPublicaciones = () => {
         setSelectedPost(null);
         setShowModal2(false);
     };
+
+
+
 
 
 
@@ -231,19 +236,30 @@ const AllPublicaciones = () => {
 
 
                             <div className='cardPublicacion'>
-                                <Anchor to={`usuario/${item?.idUsuario}/${item?.nombreUsuario.replace(/\s+/g, '_')}`} key={usuario?.idUsuario} className='userPhoto'>
-                                    <img src={item?.imagenUsuario} alt="imagen" />
+                                <div className='userPhoto'>
+
+                                    <Anchor to={`/usuario/${item?.idUsuario}/${item?.nombreUsuario.replace(/\s+/g, '_')}`} key={usuario?.idUsuario} >
+                                        <img src={item?.imagenUsuario} alt="imagen" />
+                                    </Anchor>
+
                                     <hr />
-                                </Anchor>
+
+                                </div>
                                 <div>
-                                    <Anchor to={`usuario/${item.idUsuario}/${item?.nombreUsuario.replace(/\s+/g, '_')}`} key={usuario?.idUsuario} className='userName'>
-                                        <div className='deFlexText'>
+                                    <div className='deFlexNameBtn'>
+                                        <Anchor to={`/usuario/${item.idUsuario}/${item?.nombreUsuario.replace(/\s+/g, '_')}`} key={usuario?.idUsuario} className='userName'>
                                             <strong>{item?.nombreUsuario}</strong>
                                             <h4>{item?.perfilUsuario}</h4>
-                                        </div>
-                                        <h5>{formatTimeDifference(item.createdAt)}</h5>
+                                            <h5>{formatTimeDifference(item.createdAt)}</h5>
 
-                                    </Anchor>
+                                        </Anchor>
+
+
+                                        <Anchor to={`/publicacion/${item?.idPublicacion}`} key={usuario.idUsuario} className='moreBtn'>
+                                            ...
+                                        </Anchor>
+
+                                    </div>
 
                                     <h5 className='descripcion'>
                                         {expandedMap[item?.idPublicacion]
@@ -376,7 +392,6 @@ const AllPublicaciones = () => {
                                     </div>
 
 
-
                                     {selectedPost && showModal && (
                                         <div className='modalBg'>
                                             <div className='modalContenido'>
@@ -393,10 +408,10 @@ const AllPublicaciones = () => {
                                                             </Anchor>
                                                             <div className='comentario'>
                                                                 <Anchor to={`usuario/${coment?.idUsuario}/${item?.nombreUsuario.replace(/\s+/g, '_')}`} key={usuario.idUsuario} className='userName'>
-                                                                    <div className='deFlexText'>
-                                                                        <strong>{coment?.nombreUsuarioComentario}</strong>
-                                                                        <h4>{coment?.perfilUsuarioComentario}</h4>
-                                                                    </div>
+
+                                                                    <strong>{coment?.nombreUsuarioComentario}</strong>
+                                                                    <h4>{coment?.perfilUsuarioComentario}</h4>
+
                                                                     <h5>{formatTimeDifference(coment?.createdAt)}</h5>
                                                                 </Anchor>
                                                                 <p>{coment?.comentario}</p>

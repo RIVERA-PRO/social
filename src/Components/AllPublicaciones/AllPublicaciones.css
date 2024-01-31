@@ -22,11 +22,9 @@
     width: 45px;
     height: 45px;
     border-radius: 100%;
-    border: 1px solid var(--color1) ;
-
-   
    
 }
+
 .descripcion {
     color: var(--text-color2);
     font-weight: 400;
@@ -52,10 +50,12 @@
     gap: 1rem;
     
 }
+
 .userPhoto hr{
-  height: 100%;
-  border: 0.1px solid var(--border);
-  border-radius: 10px;
+  height: 100%!important;
+  border: 0.1px solid var(--border)!important;
+  border-radius: 10px!important;
+  
   
 }
 .userName {
@@ -63,7 +63,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 6px;
+   
    
    
 }
@@ -72,7 +72,7 @@
     font-weight: 500;
     justify-content: space-between;
     text-overflow: ellipsis;
-    max-width: 20ch;
+    max-width: 30ch;
 }
 .userName h5 {
     white-space: nowrap;
@@ -86,9 +86,9 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 20ch;
+    max-width: 50ch;
     font-weight: 400;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .imgsPublic{
@@ -332,8 +332,31 @@
 .iconIntercacion.liked {
     color: var(--color1);
 }
+.deFlexNameBtn{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
 
-@media (max-width: 700px){
+.moreBtn{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    
+    cursor: pointer;
+    position: relative;
+    color: var(--text-color2);
+}
+
+@media (max-width: 400px){
+    .deFlexNameBtn{
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+    }
+}
+@media (max-width: 500px){
+    
     .modalContenido{
         background-color: var(--blanco);
        
@@ -374,6 +397,11 @@
        
         max-width: 30ch;
         font-size: 12px;
+    }
+    .userName h4{
+        
+        max-width: 30ch;
+       
     }
     #swiper_container_scroll{
         display: none;

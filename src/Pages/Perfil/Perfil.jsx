@@ -7,7 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faEnvelope, faLink, faCalendarAlt, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faEnvelope, faLink, faCalendarAlt, faUser, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link as Anchor } from 'react-router-dom';
 import { useNavigate, } from 'react-router';
 const Perfil = () => {
@@ -217,7 +217,7 @@ const Perfil = () => {
     return (
         <div className='perfilContainer'>
             <ToastContainer />
-            <HeaderBack link="/" title={nombreSinGuiones} />
+            <HeaderBack title={nombreSinGuiones} />
 
             <div className='bgPerfil'></div>
 
@@ -251,7 +251,7 @@ const Perfil = () => {
                                         </>
                                     )}
                                 </div>
-                                <p>{usuario.perfil}</p>
+                                <h6>{usuario.perfil}</h6>
 
                                 <div className='sectionButtons'>
                                     <button
@@ -369,7 +369,7 @@ const Perfil = () => {
                                 <div className='modalEdit'>
                                     <div className='modalContain'>
                                         <button onClick={toggleComponent} className='showBtns'>
-
+                                            <FontAwesomeIcon onClick={closeModal} icon={faArrowLeft} />
                                             <div className='deFlex'>
                                                 <button onClick={() => handleButtonClick('datosPersonales')} className={activeButton === 'datosPersonales' ? 'activebtn' : ''}>
                                                     Datos Personales
@@ -378,7 +378,7 @@ const Perfil = () => {
                                                     Editar Imagen
                                                 </button>
                                             </div>
-                                            <span onClick={closeModal} >X</span>
+
                                         </button>
 
                                         {showBtn ?

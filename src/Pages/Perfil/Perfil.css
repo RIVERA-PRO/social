@@ -13,7 +13,7 @@
 .perfilInfo p{
     color: var(--text-color3);
    
-  
+ 
    
 }
 .sectionInfo{
@@ -130,7 +130,13 @@
 .nombre{
     font-size: 25px;
     font-weight: 500;
-    color: var(--text-color1);
+    color: var(--text-color2);
+}
+.perfilInfoText h6{
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-color2);
+    margin-top: 10px;
 }
 .modalEdit {
     position: fixed;
@@ -348,5 +354,9 @@ legend{
       
         width: 100%;
         
+    }
+    .nombre{
+        font-size: 20px;
+       
     }
 }

@@ -66,7 +66,7 @@ export default function NavbarProfile() {
                     </div>
                 </div>
             ) : usuario.idUsuario ? (
-                <Anchor to={`/`} className='userPerfil'>
+                <Anchor to={`usuario/${usuario.idUsuario}/${usuario.nombre.replace(/\s+/g, '_')}`} className='userPerfil'>
                     <img src={usuario.imagen} alt="imagen" />
                     <div>
                         <strong>{usuario.nombre}</strong>

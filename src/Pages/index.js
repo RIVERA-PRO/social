@@ -9,6 +9,8 @@ import EditContrasena from "../Components/EditContrasena/EditContrasena";
 import Trabajos from "./Trabajos/Trabajos";
 import Marketpleace from "./Marketpleace/Marketpleace";
 import Servicios from "./Servicios/Servicios";
+import Publicacion from "./Publicacion/Publicacion";
+
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -22,6 +24,10 @@ export const router = createBrowserRouter([
             {
                 path: "/usuario/:idUsuario/:nombre",
                 element: <Perfil />,
+            },
+            {
+                path: "/publicacion/:idPublicacion",
+                element: <Publicacion />,
             },
             {
                 path: "/verificacion",

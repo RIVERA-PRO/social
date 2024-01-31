@@ -1,10 +1,12 @@
-import { React, useState, useEffect } from 'react'
-import { Link as Anchor, useNavigate, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import './HeaderBack.css'
-export default function HeaderBack({ link, title }) {
+import './HeaderBack.css';
+
+export default function HeaderBack({ title }) {
     const [scrolled, setScrolled] = useState(false);
+    const navigate = useNavigate();
 
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -16,20 +18,23 @@ export default function HeaderBack({ link, title }) {
     };
 
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener('scroll', handleScroll);
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-    return (
-        <div className={scrolled ? "headerBack scrollNav" : "headerBack"}>
-            <Anchor to={`${link}`}>
-                <FontAwesomeIcon icon={faArrowLeft} />
 
-            </Anchor>
-            <span>
-                {title}
-            </span>
+    const goBack = () => {
+        // Aquí puedes realizar otras acciones antes de volver atrás, si es necesario
+        navigate(-1); // Vuelve atrás en la historia del navegador
+    };
+
+    return (
+        <div className={scrolled ? 'headerBack scrollNav' : 'headerBack'}>
+            <div onClick={goBack} className='back'>
+                <FontAwesomeIcon icon={faArrowLeft} />
+            </div>
+            <span>{title}</span>
         </div>
-    )
+    );
 }
