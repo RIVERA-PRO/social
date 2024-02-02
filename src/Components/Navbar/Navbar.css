@@ -17,7 +17,7 @@ nav{
     transition: all 0.2s linear;
     box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.042);
     gap: 10vh;
-    padding: 30px 10% 30px;
+    padding: 30px 5% 30px;
     background-color: var(--blanco);
 }
 .scrolled {

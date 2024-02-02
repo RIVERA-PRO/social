@@ -34,6 +34,7 @@
     align-items: center;
     gap: 1rem;
     justify-content: space-between;
+    margin-top: 10px;
 }
 .deFlexs{
     display: flex;
@@ -91,18 +92,38 @@
 .inputCreate{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+   
    
 }
 .inputCreate textarea{
-    border: none;
+   
+    border-radius: 10px;
     padding: 10px;
    min-height: 10vh;
-   margin-bottom: 1rem;
-   margin-top: -5px;
+   margin-top: 10px;
+ 
    width: 100%;
    min-width: 30rem;
-   font-size: 20px;
+   border: 0.1px solid var(--border)!important;
+}
+.inputCreate input{
+    border: 0.1px solid var(--border)!important;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+   width: 100%;
+   min-width: 30rem;
+  
+}
+.inputCreate select{
+   border-radius: 10px;
+   padding: 10px;
+   margin-top: 10px;
+   width: 100%;
+   min-width: 30rem;
+   border: 0.1px solid var(--border)!important;
+   background-color: var(--blanco);
+   color: var(--text-color2);
 }
 .btn{
     background-color: var(--color1);
@@ -177,6 +198,7 @@
    padding-bottom: 1rem;
    padding-right: 10%;
    margin-bottom: 1rem;
+  
 }
 .imgsPubliCreate img{
     width: 100%;
@@ -228,10 +250,22 @@
     border: none;
     padding: 10px;
   
-   margin-bottom: 1rem;
-   margin-top: -5px;
+ 
    width: 100%;
    min-width: 100%;
-   font-size: 17px;
+   
 }
+.inputCreate input{
+   
+   min-width: 100%;
+  
+}
+.inputCreate select{
+   
+  
+  
+   min-width: 100%;
+  
+}
+
 }

@@ -1,0 +1,7 @@
+
+@media (max-width: 900px) {
+.bgPage{
+    height: 4rem;
+    background-color: var(--color1);
+}
+}

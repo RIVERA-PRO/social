@@ -10,7 +10,7 @@ import Trabajos from "./Trabajos/Trabajos";
 import Marketpleace from "./Marketpleace/Marketpleace";
 import Servicios from "./Servicios/Servicios";
 import Publicacion from "./Publicacion/Publicacion";
-
+import Producto from "./Producto/Producto";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -49,6 +49,10 @@ export const router = createBrowserRouter([
             {
                 path: "/servicios",
                 element: <Servicios />,
+            },
+            {
+                path: "/marketpleace/producto/:idProducto",
+                element: <Producto />,
             },
 
         ],
